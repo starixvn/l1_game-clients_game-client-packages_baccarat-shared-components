@@ -71,7 +71,7 @@ export class BaccaratCardsUI extends ObserverComponent {
             this.transformCardNode(node, CardLocation.Box, false);
         }
 
-        this.cards = this.cardPool.map(item => item.card);
+        this.cards = this.cardPool.map((item) => item.card);
     }
 
     private createCardNode(): Node {
@@ -134,7 +134,7 @@ export class BaccaratCardsUI extends ObserverComponent {
     // Card Drawing Operations
     public async draw6Cards(animated = true): Promise<void> {
         this.resetCardsToBox(this.cardPool);
-        this.cards = this.cardPool.map(item => item.card);
+        this.cards = this.cardPool.map((item) => item.card);
 
         if (animated) {
             await this.drawingCards(this.cardPool, animated);
@@ -144,7 +144,7 @@ export class BaccaratCardsUI extends ObserverComponent {
     }
 
     private resetCardsToBox(pool: PoolItem[]): void {
-        pool.forEach(item => {
+        pool.forEach((item) => {
             item.card.card.faceDown();
             item.location = CardLocation.Box;
             this.moveCard(item.card, CardLocation.Box, false);
@@ -170,17 +170,21 @@ export class BaccaratCardsUI extends ObserverComponent {
     }
 
     // Card Opening and Results
-    public async openCards(result: BaccaratResult, settlemenResult: gc.GameServiceMessage.TSettlementResult, animated = true): Promise<void> {
+    public async openCards(
+        result: BaccaratResult,
+        settlemenResult: gc.GameServiceMessage.TSettlementResult,
+        animated = true
+    ): Promise<void> {
         this.draw6Cards(false);
 
         const dataCards: CardWithTeam[] = [];
         for (let cardIndex = 0; cardIndex < 3; cardIndex++) {
-            [GameBaccaratX.BetChoice.Player, GameBaccaratX.BetChoice.Banker].forEach(team => {
+            [GameBaccaratX.BetChoice.Player, GameBaccaratX.BetChoice.Banker].forEach((team) => {
                 const handData = result[team];
                 dataCards.push({
                     card: handData[`card${cardIndex + 1}`],
                     team,
-                    cardIndex
+                    cardIndex,
                 });
             });
         }
@@ -201,7 +205,7 @@ export class BaccaratCardsUI extends ObserverComponent {
                         this.moveCard(card, newLocation, animated);
                     }
 
-                    const item = this.cardPool.find(item => item.card === card);
+                    const item = this.cardPool.find((item) => item.card === card);
                     if (item) {
                         item.location = newLocation;
                     }
@@ -239,8 +243,8 @@ export class BaccaratCardsUI extends ObserverComponent {
         const locations = isPlayerWin
             ? [CardLocation.Player1, CardLocation.Player2, CardLocation.Player3]
             : [CardLocation.Banker1, CardLocation.Banker2, CardLocation.Banker3];
-        const cards = this.cardPool.filter(item => locations.includes(item.location));
-        cards.forEach(item => item.card.setWinHighlight(true));
+        const cards = this.cardPool.filter((item) => locations.includes(item.location));
+        cards.forEach((item) => item.card.setWinHighlight(true));
     }
 
     // Card Animations
@@ -263,9 +267,9 @@ export class BaccaratCardsUI extends ObserverComponent {
     private calculateNextPosition(location: CardLocation): Vec3 {
         const targetNode = this.getTargetNodeForLocation(location);
 
-        return this.nodeCardContainer.getComponent(UITransform)
-            .convertToNodeSpaceAR(targetNode.getComponent(UITransform)
-                .convertToWorldSpaceAR(v3(0, 0, 0)));
+        return this.nodeCardContainer
+            .getComponent(UITransform)
+            .convertToNodeSpaceAR(targetNode.getComponent(UITransform).convertToWorldSpaceAR(v3(0, 0, 0)));
     }
 
     private getTargetNodeForLocation(location: CardLocation): Node {
