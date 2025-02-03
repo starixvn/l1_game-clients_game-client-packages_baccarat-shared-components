@@ -1,0 +1,15 @@
+{
+  "name": "baccarat-shared-components",
+  "version": "1.0.0",
+  "description": "i18n:shared-components.description",
+  "contributions": {
+    "asset-db": {
+      "mount": {
+        "path": "./assets",
+        "readonly": false
+      }
+    }
+  },
+  "editor": ">=3.7.2",
+  "package_version": 2
+}

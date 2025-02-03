@@ -1,0 +1,408 @@
+{
+    "skeleton": {
+        "hash": "7j4gknggQQdMsD77ghqWntscQNo",
+        "spine": "3.8.99",
+        "images": "./images/",
+        "audio": "D:/MYWORKFOLDER/multibaccaratX/spine"
+    },
+    "bones": [
+        { "name": "root" },
+        { "name": "table", "parent": "root" },
+        { "name": "card-table", "parent": "table" },
+        { "name": "card-glowy-gold-table", "parent": "table", "y": 34.39 },
+        { "name": "vfx", "parent": "table", "scaleY": -0.9 },
+        { "name": "gold-card-table", "parent": "table" },
+        { "name": "top", "parent": "root" },
+        { "name": "vfx2", "parent": "top", "x": -0.69, "y": 0.79, "scaleX": 0.9231, "scaleY": 0.84 },
+        { "name": "card-glowy2-gold-table", "parent": "table", "y": 34.39 },
+        { "name": "face-table", "parent": "table", "y": -0.59 },
+        { "name": "shiny-light-table", "parent": "table", "x": 0.01, "y": 35.9 },
+        { "name": "gold-card-top2", "parent": "top", "scaleX": 0.9231, "scaleY": 0.9231 },
+        { "name": "gold2", "parent": "gold-card-top2" },
+        { "name": "normal-card-top2", "parent": "top", "scaleX": 0.9231, "scaleY": 0.9231 },
+        { "name": "card-glowy-white-top", "parent": "top", "x": -0.36, "y": -31.74, "scaleX": 0.9231, "scaleY": -0.9231 },
+        { "name": "card-glowy2-white-top", "parent": "top", "x": -0.36, "y": -31.74, "scaleX": 0.9231, "scaleY": -0.9231 },
+        { "name": "face-top2", "parent": "top", "x": -0.52, "y": -1.11, "scaleX": 0.9231, "scaleY": 0.9231 }
+    ],
+    "slots": [
+        { "name": "card-glow", "bone": "card-glowy-gold-table" },
+        { "name": "card-glow7", "bone": "card-glowy-white-top" },
+        { "name": "gold-card2", "bone": "gold2" },
+        { "name": "card-table", "bone": "card-table" },
+        { "name": "gold-card-table", "bone": "gold-card-table" },
+        { "name": "normal-card-top2", "bone": "normal-card-top2" },
+        { "name": "face-table", "bone": "face-table" },
+        { "name": "face-top2", "bone": "face-top2" },
+        { "name": "vfx/ui_nudge_eff_R_00000", "bone": "vfx" },
+        { "name": "vfx/ui_nudge_eff_R_0", "bone": "vfx2" },
+        { "name": "card-glow2", "bone": "card-glowy2-gold-table" },
+        { "name": "card-glow8", "bone": "card-glowy2-white-top" },
+        { "name": "mask-shiny-table", "bone": "table", "attachment": "mask-shiny-table" },
+        { "name": "shiny", "bone": "shiny-light-table" }
+    ],
+    "skins": [
+        {
+            "name": "default",
+            "attachments": {
+                "card-glow": {
+                    "card-glow-gold-side": { "x": 0.5, "y": -34.16, "width": 70, "height": 88 }
+                },
+                "card-glow2": {
+                    "card-glow": { "x": 0.5, "y": -34.16, "width": 70, "height": 88 }
+                },
+                "card-glow7": {
+                    "card-glow-white-side": { "x": 1.18, "y": -35.33, "width": 69, "height": 89 }
+                },
+                "card-glow8": {
+                    "card-glow-white": { "x": 0.41, "y": -34.89, "width": 69, "height": 89 }
+                },
+                "card-table": {
+                    "card": { "x": 0.5, "y": 0.5, "width": 52, "height": 70 }
+                },
+                "face-table": {
+                    "face": { "x": 0.5, "y": 0.5, "width": 51, "height": 71 }
+                },
+                "face-top2": {
+                    "face": { "x": 0.5, "y": 0.5, "width": 51, "height": 71 }
+                },
+                "gold-card-table": {
+                    "gold-card": { "x": 0.5, "y": 0.5, "width": 52, "height": 70 }
+                },
+                "gold-card2": {
+                    "gold-card": { "width": 52, "height": 70 }
+                },
+                "mask-shiny-table": {
+                    "mask-shiny-table": {
+                        "type": "clipping",
+                        "end": "shiny",
+                        "vertexCount": 33,
+                        "vertices": [
+                            -23.53, -34.15, -23.99, -33.65, -24.45, -33.19, -24.91, -32.59, -25.3, -31.8, -25.52, -31.04, -25.52, 32.62,
+                            -25.31, 33.56, -24.68, 34.37, -23.98, 34.97, -23.38, 35.26, -22.17, 35.5, 22.92, 35.5, 23.59, 35.36, 24.16,
+                            35.14, 24.7, 34.88, 25.21, 34.5, 25.63, 34.1, 25.91, 33.8, 26.22, 33.47, 26.35, 32.86, 26.5, 32.29, 26.48,
+                            31.45, 26.46, -31.11, 26.38, -31.79, 26.25, -32.51, 26.04, -33.01, 25.66, -33.56, 25.22, -33.91, 24.58, -34.21,
+                            23.9, -34.41, 23.13, -34.49, -22.89, -34.48
+                        ],
+                        "color": "ce3a3aff"
+                    }
+                },
+                "normal-card-top2": {
+                    "card": { "x": 0.5, "y": 0.5, "width": 52, "height": 70 }
+                },
+                "shiny": {
+                    "shiny": { "y": 21.75, "width": 93, "height": 72 }
+                },
+                "vfx/ui_nudge_eff_R_0": {
+                    "vfx/ui_nudge_eff_R_00005": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00006": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00007": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00008": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00009": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00010": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00011": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00012": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00013": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00014": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00015": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00016": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00017": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00018": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00019": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00020": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00021": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00022": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00023": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00024": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00025": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00026": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00027": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00028": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00029": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00030": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00031": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00032": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00033": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00034": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00035": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00036": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00037": { "x": 0.5, "width": 61, "height": 160 }
+                },
+                "vfx/ui_nudge_eff_R_00000": {
+                    "vfx/ui_nudge_eff_R_00005": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00006": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00007": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00008": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00009": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00010": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00011": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00012": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00013": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00014": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00015": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00016": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00017": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00018": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00019": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00020": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00021": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00022": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00023": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00024": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00025": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00026": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00027": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00028": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00029": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00030": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00031": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00032": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00033": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00034": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00035": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00036": { "x": 0.5, "width": 61, "height": 160 },
+                    "vfx/ui_nudge_eff_R_00037": { "x": 0.5, "width": 61, "height": 160 }
+                }
+            }
+        }
+    ],
+    "animations": {
+        "golden": {
+            "slots": {
+                "card-glow": {
+                    "color": [
+                        { "color": "ffffff00", "curve": "stepped" },
+                        { "time": 0.3333, "color": "ffffff00" },
+                        { "time": 0.6, "color": "ffffffff" },
+                        { "time": 0.9333, "color": "ffffff80" },
+                        { "time": 1.2, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [{ "name": "card-glow-gold-side" }]
+                },
+                "card-glow2": {
+                    "color": [
+                        { "color": "ffffff00", "curve": "stepped" },
+                        { "time": 0.3333, "color": "ffffff00" },
+                        { "time": 0.6, "color": "ffffffff" },
+                        { "time": 0.9333, "color": "ffffff80" },
+                        { "time": 1.2, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [{ "name": "card-glow" }]
+                },
+                "card-table": {
+                    "color": [
+                        { "time": 1.0667, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [{ "name": "card" }]
+                },
+                "face-table": {
+                    "attachment": [{ "name": "face" }]
+                },
+                "gold-card-table": {
+                    "color": [
+                        { "color": "ffffff00", "curve": "stepped" },
+                        { "time": 0.8, "color": "ffffff00" },
+                        { "time": 1.3333, "color": "ffffffff" }
+                    ],
+                    "attachment": [{ "name": "gold-card" }]
+                },
+                "gold-card2": {
+                    "color": [
+                        { "time": 1.0667, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ]
+                },
+                "shiny": {
+                    "color": [
+                        { "color": "fff2c100", "curve": "stepped" },
+                        { "time": 1.5, "color": "fff2c100" },
+                        { "time": 1.5333, "color": "fff2c1ff", "curve": "stepped" },
+                        { "time": 1.8, "color": "fff2c1ff" },
+                        { "time": 2, "color": "fff2c100" }
+                    ],
+                    "attachment": [{ "name": "shiny" }]
+                },
+                "vfx/ui_nudge_eff_R_00000": {
+                    "color": [
+                        { "time": 1.2, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [
+                        { "time": 0.4, "name": "vfx/ui_nudge_eff_R_00005" },
+                        { "time": 0.4333, "name": "vfx/ui_nudge_eff_R_00006" },
+                        { "time": 0.4667, "name": "vfx/ui_nudge_eff_R_00007" },
+                        { "time": 0.5, "name": "vfx/ui_nudge_eff_R_00008" },
+                        { "time": 0.5333, "name": "vfx/ui_nudge_eff_R_00009" },
+                        { "time": 0.5667, "name": "vfx/ui_nudge_eff_R_00010" },
+                        { "time": 0.6, "name": "vfx/ui_nudge_eff_R_00011" },
+                        { "time": 0.6333, "name": "vfx/ui_nudge_eff_R_00012" },
+                        { "time": 0.6667, "name": "vfx/ui_nudge_eff_R_00013" },
+                        { "time": 0.7, "name": "vfx/ui_nudge_eff_R_00014" },
+                        { "time": 0.7333, "name": "vfx/ui_nudge_eff_R_00015" },
+                        { "time": 0.7667, "name": "vfx/ui_nudge_eff_R_00016" },
+                        { "time": 0.8, "name": "vfx/ui_nudge_eff_R_00017" },
+                        { "time": 0.8333, "name": "vfx/ui_nudge_eff_R_00018" },
+                        { "time": 0.8667, "name": "vfx/ui_nudge_eff_R_00019" },
+                        { "time": 0.9, "name": "vfx/ui_nudge_eff_R_00020" },
+                        { "time": 0.9333, "name": "vfx/ui_nudge_eff_R_00021" },
+                        { "time": 0.9667, "name": "vfx/ui_nudge_eff_R_00022" },
+                        { "time": 1, "name": "vfx/ui_nudge_eff_R_00023" },
+                        { "time": 1.0333, "name": "vfx/ui_nudge_eff_R_00024" },
+                        { "time": 1.0667, "name": "vfx/ui_nudge_eff_R_00025" },
+                        { "time": 1.1, "name": "vfx/ui_nudge_eff_R_00026" },
+                        { "time": 1.1333, "name": "vfx/ui_nudge_eff_R_00027" },
+                        { "time": 1.1667, "name": "vfx/ui_nudge_eff_R_00028" },
+                        { "time": 1.2, "name": "vfx/ui_nudge_eff_R_00029" },
+                        { "time": 1.2333, "name": "vfx/ui_nudge_eff_R_00030" },
+                        { "time": 1.2667, "name": "vfx/ui_nudge_eff_R_00031" },
+                        { "time": 1.3, "name": "vfx/ui_nudge_eff_R_00032" },
+                        { "time": 1.3333, "name": "vfx/ui_nudge_eff_R_00033" },
+                        { "time": 1.3667, "name": "vfx/ui_nudge_eff_R_00034" },
+                        { "time": 1.4, "name": "vfx/ui_nudge_eff_R_00035" },
+                        { "time": 1.4333, "name": "vfx/ui_nudge_eff_R_00036" },
+                        { "time": 1.4667, "name": "vfx/ui_nudge_eff_R_00037" }
+                    ]
+                }
+            },
+            "bones": {
+                "card-table": {
+                    "scale": [
+                        {},
+                        { "time": 0.0667, "x": 0.95, "y": 0.95 },
+                        { "time": 0.2667, "x": 1.15, "y": 1.15 },
+                        { "time": 0.3667, "x": 0.975, "y": 0.975 },
+                        { "time": 0.4 }
+                    ]
+                },
+                "card-glowy-gold-table": {
+                    "scale": [{ "time": 0.3333, "y": 0 }, { "time": 0.9333 }]
+                },
+                "face-table": {
+                    "scale": [
+                        {},
+                        { "time": 0.0667, "x": 0.95, "y": 0.95 },
+                        { "time": 0.2667, "x": 1.15, "y": 1.15 },
+                        { "time": 0.3667, "x": 0.975, "y": 0.975 },
+                        { "time": 0.4 }
+                    ]
+                },
+                "shiny-light-table": {
+                    "translate": [
+                        { "time": 1.5333, "x": -15.26, "y": -13.16, "curve": 0.25, "c3": 0.75 },
+                        { "time": 2, "x": 23.94, "y": -86.59 }
+                    ]
+                }
+            }
+        },
+        "white": {
+            "slots": {
+                "card-glow7": {
+                    "color": [
+                        { "color": "ffffff00", "curve": "stepped" },
+                        { "time": 0.3333, "color": "ffffff00" },
+                        { "time": 0.6, "color": "ffffffff" },
+                        { "time": 0.9333, "color": "ffffff80" },
+                        { "time": 1.2, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [{ "name": "card-glow-white-side" }]
+                },
+                "card-glow8": {
+                    "color": [
+                        { "color": "ffffff00", "curve": "stepped" },
+                        { "time": 0.3333, "color": "ffffff00" },
+                        { "time": 0.6, "color": "ffffffff" },
+                        { "time": 0.9333, "color": "ffffff80" },
+                        { "time": 1.2, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [{ "name": "card-glow-white" }]
+                },
+                "face-top2": {
+                    "attachment": [{ "name": "face" }]
+                },
+                "gold-card2": {
+                    "color": [
+                        { "time": 1.0667, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [{ "name": "gold-card" }]
+                },
+                "normal-card-top2": {
+                    "color": [
+                        { "color": "ffffff00", "curve": "stepped" },
+                        { "time": 0.8, "color": "ffffff00" },
+                        { "time": 1.3333, "color": "ffffffff" }
+                    ],
+                    "attachment": [{ "name": "card" }]
+                },
+                "vfx/ui_nudge_eff_R_0": {
+                    "color": [
+                        { "time": 1.2, "color": "ffffffff" },
+                        { "time": 1.4667, "color": "ffffff00" }
+                    ],
+                    "attachment": [
+                        { "time": 0.4, "name": "vfx/ui_nudge_eff_R_00005" },
+                        { "time": 0.4333, "name": "vfx/ui_nudge_eff_R_00006" },
+                        { "time": 0.4667, "name": "vfx/ui_nudge_eff_R_00007" },
+                        { "time": 0.5, "name": "vfx/ui_nudge_eff_R_00008" },
+                        { "time": 0.5333, "name": "vfx/ui_nudge_eff_R_00009" },
+                        { "time": 0.5667, "name": "vfx/ui_nudge_eff_R_00010" },
+                        { "time": 0.6, "name": "vfx/ui_nudge_eff_R_00011" },
+                        { "time": 0.6333, "name": "vfx/ui_nudge_eff_R_00012" },
+                        { "time": 0.6667, "name": "vfx/ui_nudge_eff_R_00013" },
+                        { "time": 0.7, "name": "vfx/ui_nudge_eff_R_00014" },
+                        { "time": 0.7333, "name": "vfx/ui_nudge_eff_R_00015" },
+                        { "time": 0.7667, "name": "vfx/ui_nudge_eff_R_00016" },
+                        { "time": 0.8, "name": "vfx/ui_nudge_eff_R_00017" },
+                        { "time": 0.8333, "name": "vfx/ui_nudge_eff_R_00018" },
+                        { "time": 0.8667, "name": "vfx/ui_nudge_eff_R_00019" },
+                        { "time": 0.9, "name": "vfx/ui_nudge_eff_R_00020" },
+                        { "time": 0.9333, "name": "vfx/ui_nudge_eff_R_00021" },
+                        { "time": 0.9667, "name": "vfx/ui_nudge_eff_R_00022" },
+                        { "time": 1, "name": "vfx/ui_nudge_eff_R_00023" },
+                        { "time": 1.0333, "name": "vfx/ui_nudge_eff_R_00024" },
+                        { "time": 1.0667, "name": "vfx/ui_nudge_eff_R_00025" },
+                        { "time": 1.1, "name": "vfx/ui_nudge_eff_R_00026" },
+                        { "time": 1.1333, "name": "vfx/ui_nudge_eff_R_00027" },
+                        { "time": 1.1667, "name": "vfx/ui_nudge_eff_R_00028" },
+                        { "time": 1.2, "name": "vfx/ui_nudge_eff_R_00029" },
+                        { "time": 1.2333, "name": "vfx/ui_nudge_eff_R_00030" },
+                        { "time": 1.2667, "name": "vfx/ui_nudge_eff_R_00031" },
+                        { "time": 1.3, "name": "vfx/ui_nudge_eff_R_00032" },
+                        { "time": 1.3333, "name": "vfx/ui_nudge_eff_R_00033" },
+                        { "time": 1.3667, "name": "vfx/ui_nudge_eff_R_00034" },
+                        { "time": 1.4, "name": "vfx/ui_nudge_eff_R_00035" },
+                        { "time": 1.4333, "name": "vfx/ui_nudge_eff_R_00036" },
+                        { "time": 1.4667, "name": "vfx/ui_nudge_eff_R_00037" }
+                    ]
+                }
+            },
+            "bones": {
+                "gold-card-top2": {
+                    "scale": [
+                        {},
+                        { "time": 0.0667, "x": 0.95, "y": 0.95 },
+                        { "time": 0.2667, "x": 1.15, "y": 1.15 },
+                        { "time": 0.3667, "x": 0.975, "y": 0.975 },
+                        { "time": 0.4 }
+                    ]
+                },
+                "card-glowy-white-top": {
+                    "scale": [{}, { "time": 0.3333, "y": 0 }, { "time": 0.9333 }]
+                },
+                "face-top2": {
+                    "scale": [
+                        {},
+                        { "time": 0.0667, "x": 0.95, "y": 0.95 },
+                        { "time": 0.2667, "x": 1.15, "y": 1.15 },
+                        { "time": 0.3667, "x": 0.975, "y": 0.975 },
+                        { "time": 0.4 }
+                    ]
+                }
+            }
+        }
+    }
+}
