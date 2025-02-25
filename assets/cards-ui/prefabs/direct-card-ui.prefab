@@ -51,7 +51,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 5.4599999999999795,
+      "x": 0,
       "y": 70.04899999999998,
       "z": 0
     },
@@ -417,7 +417,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 332.34,
+      "x": 335.424,
       "y": 160.034,
       "z": 0
     },
@@ -739,8 +739,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -60,
-      "y": 53.43,
+      "x": -52,
+      "y": 55.273,
       "z": 0
     },
     "_lrot": {
@@ -792,8 +792,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -10.074,
-      "y": 73.393,
+      "x": -8.492,
+      "y": 72.164,
       "z": 0
     },
     "_lrot": {
@@ -833,7 +833,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 165,
+      "width": 154,
       "height": 78
     },
     "_anchorPoint": {
@@ -2728,8 +2728,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 60,
-      "y": 53.43,
+      "x": 52,
+      "y": 55.273,
       "z": 0
     },
     "_lrot": {
@@ -2781,8 +2781,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 9.475,
-      "y": 73.393,
+      "x": 7,
+      "y": 72.164,
       "z": 0
     },
     "_lrot": {
@@ -2822,7 +2822,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 108,
+      "width": 165,
       "height": 78
     },
     "_anchorPoint": {
@@ -4698,8 +4698,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 828.0000000000001,
-      "height": 1078
+      "width": 100,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4726,8 +4726,8 @@
     },
     "_alignFlags": 45,
     "_target": null,
-    "_left": 5.4599999999999795,
-    "_right": -5.4599999999999795,
+    "_left": 0,
+    "_right": 0,
     "_top": -70.04899999999998,
     "_bottom": 70.04899999999998,
     "_horizontalCenter": 0,
@@ -4788,7 +4788,6 @@
       "__id__": 0
     },
     "fileId": "c46/YsCPVOJYA4mWEpNYRx",
-    "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {
