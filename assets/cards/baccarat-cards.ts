@@ -1,12 +1,12 @@
 import gc from "@sg/game-client-base";
 import { _decorator, instantiate, Node, Prefab, tween, UITransform, v3, Vec3 } from "cc";
+import { BaccaratXCards } from "db://shared-components/game-baccarat/cards/baccarat-x-cards";
 import { FairnessCard } from "db://shared-components/game/poker-cards/scripts/fairness-card";
-import { convertOldCardToServiceCard, ServiceCard, ServiceOldCard } from "db://shared-components/game/poker-cards/scripts/poker-card";
+import { convertOldCardToServiceCard } from "db://shared-components/game/poker-cards/scripts/poker-card";
 import { ObserverComponent } from "db://shared-components/shared/common-components/observer-component/scripts/observer-component";
 import Observer from "observer";
-import { BaccaratXCards } from "db://shared-components/game-baccarat/cards/baccarat-x-cards";
 import { GameBaccaratResultUtil } from "../utils/game-result-util";
-import { BaccaratResult, CardLocation, CardWithTeam, PoolItem, ServiceCardHand } from "./baccarat-cards.types";
+import { BaccaratResult, CardLocation, CardWithTeam, PoolItem } from "./baccarat-cards.types";
 
 const { ccclass, property } = _decorator;
 const { render, handle } = Observer;
@@ -23,20 +23,20 @@ const MAX_CARDS = 6;
 export class BaccaratCardsUI extends ObserverComponent {
     // Properties
     @property(Prefab)
-    private prfCard: Prefab = null;
+    private readonly prfCard: Prefab = null;
 
     @property(Node)
-    private nodeCardContainer: Node = null;
+    private readonly nodeCardContainer: Node = null;
 
     @property(Node)
-    private nodeWaitingCard: Node = null;
+    private readonly nodeWaitingCard: Node = null;
 
     @property(Node)
-    private nodeBoxCard: Node = null;
+    private readonly nodeBoxCard: Node = null;
 
     private _cardHands: BaccaratXCards[] = [];
     private cards: FairnessCard[] = [];
-    private cardPool: PoolItem[] = [];
+    private readonly cardPool: PoolItem[] = [];
 
     // Lifecycle Methods
     async onLoad() {
@@ -185,53 +185,94 @@ export class BaccaratCardsUI extends ObserverComponent {
             });
         }
 
-        let index = 0;
-        for (const [dataIndex, data] of dataCards.entries()) {
-            if (data.card) {
-                const card = this.cards[index];
-                card.node.active = true;
-                card.setCardData(convertOldCardToServiceCard(data.card));
-
-                if (index > 3) {
-                    this.playSoundDrawCard();
-                    const newLocation = dataIndex === 4 ? CardLocation.Player3 : CardLocation.Banker3;
-                    if (animated) {
-                        await this.moveCard(card, newLocation, animated);
-                    } else {
-                        this.moveCard(card, newLocation, animated);
-                    }
-
-                    const item = this.cardPool.find(item => item.card === card);
-                    if (item) {
-                        item.location = newLocation;
-                    }
-                }
-
-                if (animated) {
-                    this.playSoundOpeningCard();
-                    await card.openCard(animated, OPEN_CARD_DURATION).then(() => {
-                        const { playerScore, bankerScore } = GameBaccaratResultUtil.getScores(result, data.cardIndex);
-
-                        if (data.team === GameBaccaratX.BetChoice.Player) {
-                            this.cardHands[0].setScore(playerScore);
-                        } else {
-                            this.cardHands[1].setScore(bankerScore);
-                        }
-                    });
-                } else {
-                    card.openCard(animated);
-                    const { playerScore, bankerScore } = GameBaccaratResultUtil.getScores(result);
-
-                    this.cardHands[0].setScore(playerScore);
-                    this.cardHands[1].setScore(bankerScore);
-                }
-
-                index++;
-            }
-        }
+        await this.processCards(dataCards, result, animated);
 
         if (!settlemenResult[GameBaccaratX.BetChoice.Tie]) {
             this.highlightWinHandCards(settlemenResult[GameBaccaratX.BetChoice.Player]);
+        }
+    }
+
+    private async processCards(dataCards: CardWithTeam[], result: BaccaratResult, animated: boolean): Promise<void> {
+        let cardIndex = 0;
+        
+        for (const [dataIndex, data] of dataCards.entries()) {
+            if (data.card) {
+                const card = this.cards[cardIndex];
+                card.node.active = true;
+                card.setCardData(convertOldCardToServiceCard(data.card));
+
+                await this.setupAndOpenCard(card, data, dataIndex, result, animated);
+                cardIndex++;
+            }
+        }
+    }
+
+    private async setupAndOpenCard(
+        card: FairnessCard, 
+        data: CardWithTeam, 
+        dataIndex: number, 
+        result: BaccaratResult, 
+        animated: boolean
+    ): Promise<void> {
+        if (dataIndex > 3) {
+            await this.handleThirdCardMovement(card, dataIndex, animated);
+        }
+
+        await this.openCardAndUpdateScores(card, data, result, animated);
+    }
+
+    private async handleThirdCardMovement(card: FairnessCard, dataIndex: number, animated: boolean): Promise<void> {
+        this.playSoundDrawCard();
+        
+        const newLocation = dataIndex === 4 ? CardLocation.Player3 : CardLocation.Banker3;
+        
+        if (animated) {
+            await this.moveCard(card, newLocation, animated);
+        } else {
+            this.moveCard(card, newLocation, animated);
+        }
+
+        const item = this.cardPool.find(item => item.card === card);
+        if (item) {
+            item.location = newLocation;
+        }
+    }
+
+    private async openCardAndUpdateScores(
+        card: FairnessCard, 
+        data: CardWithTeam, 
+        result: BaccaratResult, 
+        animated: boolean
+    ): Promise<void> {
+        if (animated) {
+            await this.openCardAnimated(card, data, result);
+        } else {
+            this.openCardInstant(card, result);
+        }
+    }
+
+    private async openCardAnimated(card: FairnessCard, data: CardWithTeam, result: BaccaratResult): Promise<void> {
+        this.playSoundOpeningCard();
+        
+        await card.openCard(true, OPEN_CARD_DURATION).then(() => {
+            const { playerScore, bankerScore } = GameBaccaratResultUtil.getScores(result, data.cardIndex);
+            this.updateTeamScore(data.team, playerScore, bankerScore);
+        });
+    }
+
+    private openCardInstant(card: FairnessCard, result: BaccaratResult): void {
+        card.openCard(false);
+        const { playerScore, bankerScore } = GameBaccaratResultUtil.getScores(result);
+        
+        this.cardHands[0].setScore(playerScore);
+        this.cardHands[1].setScore(bankerScore);
+    }
+
+    private updateTeamScore(team: gc.GameBaccaratX.BetChoice, playerScore: number, bankerScore: number): void {
+        if (team === gc.GameBaccaratX.BetChoice.Player) {
+            this.cardHands[0].setScore(playerScore);
+        } else {
+            this.cardHands[1].setScore(bankerScore);
         }
     }
 
@@ -246,7 +287,9 @@ export class BaccaratCardsUI extends ObserverComponent {
     // Card Animations
     private async moveCard(card: FairnessCard, nextLocation: CardLocation, animated: boolean): Promise<void> {
         const cardNode = card?.node;
-        if (!cardNode) return;
+        if (!cardNode) {
+            return;
+        }
 
         cardNode.setSiblingIndex(card.cardIndex);
         const nextPosition = this.calculateNextPosition(nextLocation);
